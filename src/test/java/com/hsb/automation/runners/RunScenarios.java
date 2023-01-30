@@ -1,24 +1,17 @@
 package com.hsb.automation.runners;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
-
-import com.testauto.utility.*;
+import com.testauto.utility.CommonPropertyManager;
+import com.testauto.utility.DriverManager;
+import com.testauto.utility.FileUtil;
+import com.testauto.utility.TestRunUtil;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
-//import com.testauto.utility.BrowserUtility;
-//import com.testauto.utility.DriverFactory;
-//import com.testauto.utility.PropertiesFileReader;
-
-
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
+import java.util.Arrays;
 
 @CucumberOptions(features = "src/test/resources",
 glue = {"com.testauto.stepdef"},
@@ -42,7 +35,6 @@ public class RunScenarios extends AbstractTestNGCucumberTests{
         @Parameters({"browsertype"})
         @BeforeTest
         public void beforeTestSetUp(ITestContext context, @Optional("") String browsertype){
-           // TestContext testContext = new TestContext();
             log.info(TestRunUtil.getTestNameState(context.getName(),"BeforeTest"));
             CommonPropertyManager.setBrowser(
                     System.getProperty("browsertype") == null ?

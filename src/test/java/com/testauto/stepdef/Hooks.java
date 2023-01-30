@@ -16,19 +16,20 @@ public class Hooks extends BaseSteps {
 
     @Before
     public void beforeScenario(Scenario scenario){
-
         log.info(TestRunUtil.getScenarioExecutionStartState(scenario));
     }
 
     @AfterStep
     public void afterStep(Scenario scenario){
-        ScreenshotUtil.captureFullScreenshot(driver, scenario);
+
+        ScreenshotUtil.captureScreenshot(driver, scenario);
+        ScreenshotUtil.captureScreenshot(driver, scenario);
     }
 
     @After
     public void afterScenario(Scenario scenario){
         if(scenario.isFailed() || scenario.getStatus().toString().equalsIgnoreCase("UNDEFINED")){
-            ScreenshotUtil.captureFullScreenshot(driver, scenario);
+            ScreenshotUtil.captureScreenshot(driver, scenario);
         }
         log.info(TestRunUtil.getScenarioExecutionEndState(scenario));
         driverManager.closeAllBrowserWindows();

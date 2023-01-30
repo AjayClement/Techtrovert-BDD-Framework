@@ -1,9 +1,13 @@
 package com.testauto.stepdef;
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import com.testauto.pages.AmazonLandingPage;
 import com.testauto.utility.TestContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import javax.xml.datatype.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class AmazonDemoSteps extends BaseSteps {
 
@@ -15,22 +19,13 @@ public class AmazonDemoSteps extends BaseSteps {
     }
     @When("user clicks on hamburger menu")
     public void user_clicks_on_hamburger_menu() {
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         amazonLandingPage.clickHamburgerIcon();
     }
 
     @Then("the menu is displayed")
     public void the_menu_is_displayed() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         softAssert.assertTrue(amazonLandingPage.verifyMenuIsDisplayed()
                 ,"Menu is not displayed");
         softAssert.assertAll();

@@ -61,7 +61,7 @@ public class ScreenshotUtil {
         int width = currentDimension.getWidth();
         Dimension screenshotDimension =  new Dimension(1920, 1080);
         driver.manage().window().setSize(screenshotDimension);
-        FileUtil.createFileDirectory(CommonPropertyManager.getScreenshotsDir());
+       // FileUtil.createFileDirectory(CommonPropertyManager.getScreenshotsDir());
         try{
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/jpeg", "screenshot");

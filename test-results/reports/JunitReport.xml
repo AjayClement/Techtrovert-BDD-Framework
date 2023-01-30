@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="60.221">
+    <testcase classname="Amazon launch demotest" name="Verify hamburger menu is opened" time="60.083">
+        <system-out><![CDATA[When user clicks on hamburger menu..........................................passed
+Then the menu is displayed..................................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
